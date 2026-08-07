@@ -1,25 +1,56 @@
-# Scholarytics / 学术智审
+# PeerForge / 学术智审
 
 [![Stars](https://img.shields.io/github/stars/AI-fanatics/scholarytics?style=social)](https://github.com/AI-fanatics/scholarytics)
 [![Version](https://img.shields.io/badge/version-4.1.0-blue)](https://github.com/AI-fanatics/scholarytics)
 [![Skills](https://img.shields.io/badge/skills-15-green)](https://github.com/AI-fanatics/scholarytics/tree/main/skills)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**Scholarytics** = Scholarly + Analytics · 学术智审
+**PeerForge** — Multi-agent peer review for academic papers.  
+15 independent skills × 6 specialized AI agents → structured, auditable review reports.
 
-**[English](#english) | [中文](#中文)**
+**[English](#english) | [中文](#中文)** · [Live Demo](https://ai-fanatics.github.io/scholarytics) · [Full ResNet Review](demo/RESNET_REVIEW.md)
 
 ---
 
 ## English
 
-End-to-end academic paper review system — **15 independent skills** × **6 specialized AI agents** produce structured peer review reports.
+Stop sending papers out with hidden flaws.  
+PeerForge runs a complete peer-review pipeline: methodology, novelty, narrative, LaTeX, citations, claim-evidence alignment, data integrity, scorecards, venue matching, and rebuttal drafting.
 
-### Demo — ResNet (He et al., 2015)
-> 🏆 **30/30 — Landmark Paper.** → **[Full Bilingual Review →](demo/RESNET_REVIEW.md)**
+### Quick Demo — ResNet (He et al., 2015)
+> 🏆 **30/30 — Landmark Paper**  
+> [Read the full bilingual review →](demo/RESNET_REVIEW.md)
 
----
+### Why PeerForge?
+| Feature | What you get |
+|---------|--------------|
+| **6 specialized agents** | Methodology · Domain · Narrative · Format · References · Integrity — each works independently |
+| **15 skills** | Use the full pipeline or call any skill alone |
+| **Structured output** | Markdown report + JSON scorecard + per-agent logs |
+| **LaTeX-aware** | 3-pass compile, warning parsing, exact fix suggestions |
+| **Academic scoring** | CCF 6-dim × 5pt (30 total) + Nature-style axes |
+| **Rebuttal builder** | Turn reviewer comments into point-by-point response + revision plan |
 
-### 15 Skills · Complete Table
+### Install (Hermes Agent)
+```bash
+hermes skills install scholarytics
+```
+
+### Full install
+```bash
+git clone https://github.com/AI-fanatics/scholarytics.git
+cp -R skills/* ~/.hermes/skills/research/
+```
+
+### Usage
+```bash
+scholarytics path/to/paper.tex --mode full       # Full multi-agent review
+scholarytics-quick-scan path/to/paper.pdf         # 5-minute snapshot
+scholarytics-latex-audit path/to/paper.tex        # Deep LaTeX audit
+scholarytics-citation-audit paper.tex refs.bib    # Citation deep dive
+```
+
+### 15 Skills
 
 | # | Skill | Type | Agent | Description |
 |---|-------|------|:-----:|-------------|
@@ -42,31 +73,15 @@ End-to-end academic paper review system — **15 independent skills** × **6 spe
 ### Scoring
 - **CCF 6-dim × 5pts = 30 total**
 - Nature 5-axis evaluation
-- Reference quality scoring (1-5)
-
-### Install
-```bash
-# Hermes Agent
-hermes skills install scholarytics
-
-# Full install (all 15 skills)
-git clone https://github.com/AI-fanatics/scholarytics.git
-cp -R skills/* ~/.hermes/skills/research/
-```
-
-### Usage
-```bash
-scholarytics path/to/paper.tex --mode full       # Full review
-scholarytics-quick-scan path/to/paper.pdf         # 5-min scan
-scholarytics-latex-audit path/to/paper.tex        # LaTeX audit
-scholarytics-citation-audit paper.tex refs.bib    # Citation audit
-```
+- Reference quality scoring (1–5)
 
 ---
 
 ## 中文
 
-端到端学术论文超审系统 — **15 个独立 Skill** × **6 个专业化 AI 智能体**并行审稿。
+**PeerForge · 学术智审** — 端到端学术论文审稿系统：**15 个独立 Skill** × **6 个专业化 AI 智能体**并行审稿，产出结构化、可审计的审稿报告。
+
+不再带着隐藏缺陷投稿。PeerForge 覆盖完整审稿流水线：方法学、创新性、叙事、LaTeX、引用、声称-证据对齐、数据完整性、评分卡、期刊匹配与 Rebuttal 起草。
 
 ### 示范 — ResNet (何恺明, 2015)
 > 🏆 **30/30 满分 — Landmark Paper.** → **[中英双语完整审稿 →](demo/RESNET_REVIEW.md)**
@@ -107,7 +122,7 @@ cp -R skills/* ~/.hermes/skills/research/
 
 ### 使用
 ```bash
-scholarytics path/to/paper.tex --mode full        # 完整超审
+scholarytics path/to/paper.tex --mode full        # 完整审稿
 scholarytics-quick-scan path/to/paper.pdf          # 5分钟画像
 scholarytics-latex-audit path/to/paper.tex         # LaTeX深度审计
 scholarytics-citation-audit paper.tex refs.bib     # 引用深度审计
